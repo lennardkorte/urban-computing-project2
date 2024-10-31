@@ -26,10 +26,11 @@ RUN mkdir -p build && \
 
 # Copy the Python script after building to ensure it’s in the correct directory
 COPY 03_map_matching.py /fmm/
-COPY ext_task3.py /fmm/
-COPY ext_task3-python2.py /fmm/
+#COPY ext_task3.py /fmm/
+#COPY ext_task3-python2.py /fmm/
 
 # Expose port and set default command
 EXPOSE 8080
-CMD ["python", "ext_task3-python2.py"]
+CMD ["python", "03_map_matching.py"]
+#CMD ["python", "ext_task3-python2.py"]
 #CMD ["python", "ext_task3.py"]
