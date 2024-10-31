@@ -11,7 +11,7 @@ trip_limit = 15  # Limit processing to first 15 trips
 
 # Map matching parameters
 search_radius = 0.05
-k_neighbors = 8
+k_neighbors = 10
 gps_accuracy = 0.005
 ubodt_distance_threshold = 0.02
 regen_ubodt = False
