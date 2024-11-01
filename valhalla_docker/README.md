@@ -11,7 +11,7 @@
 `docker build -t ghcr.io/gis-ops/docker-valhalla/valhalla:latest .`
 
 # build tiles (valhalla_tiles.tar)
-- this will take some time
+- this will take some time\  
 `docker compose up -f docker-compose.yml.1`
 
 
@@ -19,6 +19,6 @@
 `docker compose up -f docker-compose.yml.2`
 
 # now valhalla services can be accessed via the exposed port
-see this link for explanation how to use the Meili API:\\
+see this link for explanation how to use the Meili API:\  
 https://towardsdatascience.com/map-matching-done-right-using-valhallas-meili-f635ebd17053#:~:text=Sending%20a%20request%20to%20Meili
 
