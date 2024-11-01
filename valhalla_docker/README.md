@@ -12,11 +12,11 @@
 
 # build tiles (valhalla_tiles.tar)
 - this will take some time\  
-`docker compose up -f docker-compose.yml.1`
+`docker compose -f docker-compose.yml.1 up`
 
 
 # serve valhalla service w/ pre-built tiles
-`docker compose up -f docker-compose.yml.2`
+`docker compose -f docker-compose.yml.2 up`
 
 # now valhalla services can be accessed via the exposed port
 see this link for explanation how to use the Meili API:\  
