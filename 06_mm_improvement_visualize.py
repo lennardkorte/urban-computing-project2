@@ -3,7 +3,7 @@ import pandas as pd
 import ast
 
 # Load data
-df = pd.read_csv('./data/train-1500.csv')
+df = pd.read_csv('./data/task_6_results/improved_trip_data.csv')
 
 # Identify and store first 15 TRIP_IDs based on the earliest TIMESTAMP
 selected_trip_ids = df["TRIP_ID"].unique()[:15]
@@ -41,5 +41,5 @@ for idx, coords in enumerate(trip_coords):
 
 # Layer control and save map
 fmap.add_child(folium.LayerControl())
-fmap.save('./data/porto_trips_map_zoomed.html')
-print("Map saved as ./data/porto_trips_map_zoomed.html")
+fmap.save('./data/task_6_results/porto_trips_map_zoomed.html')
+print("Map saved as ./data/task_6_results/porto_trips_map_zoomed.html")

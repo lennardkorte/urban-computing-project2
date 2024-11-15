@@ -9,7 +9,7 @@ G = ox.graph_from_place("Porto, Portugal", network_type="drive", which_result=2)
 df = pd.read_csv("./data/train-1500.csv")
 
 # Select and process the first 15 trips
-trip_data = df[df["TRIP_ID"].isin(df.groupby("TRIP_ID").first().sort_values("TIMESTAMP").head(15).index)]
+trip_data = df[df["TRIP_ID"].isin(df["TRIP_ID"].unique()[:15])]
 all_points = [point for polyline in trip_data["POLYLINE"] for point in ast.literal_eval(polyline)]
 lons, lats = zip(*all_points)
 

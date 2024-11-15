@@ -88,7 +88,7 @@ std_dev_points = np.std(points_per_trip) if valid_linestrings > 0 else 0
 
 # Plot the distribution of the number of points per trip and save it to a file
 plt.figure(figsize=(10, 6))
-plt.hist(points_per_trip, bins=50, edgecolor='black', log=True)  # Log scale for better visibility
+plt.hist(points_per_trip, bins=50, color='blue', edgecolor='black', log=True)  # Log scale for better visibility
 plt.xlabel('Number of Points per Trip', fontsize=25)
 plt.ylabel('Frequency (Log Scale)', fontsize=25)
 plt.xticks(fontsize=20)
