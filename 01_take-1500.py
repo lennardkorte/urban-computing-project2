@@ -11,6 +11,7 @@ output_graph_file = './data/points_distribution.png'
 # Dictionary to store trip data
 trips = {}
 trip_ids_in_order = []
+taxi_ids_before = set()
 
 # Step 1: Read the input file and store trip data
 with open(input_file, 'r') as csvfile:
@@ -18,6 +19,8 @@ with open(input_file, 'r') as csvfile:
     for row in reader:
         trip_id = row['TRIP_ID']
         timestamp = int(row['TIMESTAMP'])
+        taxi_id = row['TAXI_ID']
+        taxi_ids_before.add(taxi_id)
 
         # If trip is already in trips dictionary, append the entry
         if trip_id in trips:
@@ -28,7 +31,7 @@ with open(input_file, 'r') as csvfile:
             trip_ids_in_order.append((trip_id, timestamp))
 
 # Step 2: Sort trips by timestamp and select the first 1500 unique trips
-trip_ids_in_order.sort(key=lambda x: x[1])  # Sort by timestamp
+# trip_ids_in_order.sort(key=lambda x: x[1])  # Sort by timestamp
 selected_trip_ids = {trip_id for trip_id, _ in trip_ids_in_order[:1500]}
 
 # Statistics to gather
@@ -37,6 +40,7 @@ max_points = 0
 total_points = 0
 valid_linestrings = 0
 points_per_trip = []
+taxi_ids_after = set()
 
 # Helper function to filter duplicates in a polyline
 def filter_duplicate_points(polyline):
@@ -70,12 +74,13 @@ with open(output_file, 'w', newline='') as csvfile:
             # Write the row to the file
             row['POLYLINE'] = str(polyline)  # Convert back to string for writing
             writer.writerow(row)
-            
+
             # Track statistics
             valid_linestrings += 1
             total_points += num_points
             points_per_trip.append(num_points)
             max_points = max(max_points, num_points)
+            taxi_ids_after.add(row['TAXI_ID'])
 
 # Calculate additional statistics
 average_points = total_points / valid_linestrings if valid_linestrings > 0 else 0
@@ -95,8 +100,12 @@ plt.close()
 
 # Display results
 print({
+    "Number of Trips Before Subsetting": len(trip_ids_in_order),
+    "Number of Unique Taxi IDs Before Subsetting": len(taxi_ids_before),
+    "Number of Trips After Subsetting": len(selected_trip_ids),
+    "Number of Unique Taxi IDs After Subsetting": len(taxi_ids_after),
     "Single Point Trips Removed": single_point_polylines,
-    "Trips with Most Points": max_points,
+    "Trip with Most Points": max_points,
     "Total Number of Points": total_points,
     "Total Number of Valid Trips": valid_linestrings,
     "Average Number of Points": average_points,
