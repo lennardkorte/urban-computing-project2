@@ -30,21 +30,21 @@ plt.savefig("./data/task_6_results/consecutive_distances_histogram_before.png")
 plt.close()
 
 #Remove outliers from trip data
-threshold_min, threshold_max, threshold_step = 0.005, 0.1, 0.005
-threshold_noise = 0.0002
+min_thresh, max_thresh, step_thresh = 0.005, 0.1, 0.005
+noise_thresh = 0.0002
 for index, row in trip_data.iterrows():
     polyline = row['POLYLINE']
     if len(polyline) < 2:
         continue
     modified_points = [polyline[0]]
-    last_point, threshold = polyline[0], threshold_min
+    last_point, threshold = polyline[0], min_thresh
     for next_point in polyline[1:]:
         distance = math.sqrt((last_point[0] - next_point[0])**2 + (last_point[1] - next_point[1])**2)
-        if distance < threshold and distance > threshold_noise:
+        if distance < threshold and distance > noise_thresh:
             modified_points.append(next_point)
-            last_point, threshold = next_point, threshold_min
+            last_point, threshold = next_point, min_thresh
         else:
-            threshold = min(threshold + threshold_step, threshold_max)
+            threshold = min(threshold + step_thresh, max_thresh)
     trip_data.at[index, 'POLYLINE'] = modified_points
 
 # Calculate consecutive distances after applying the algorithm
