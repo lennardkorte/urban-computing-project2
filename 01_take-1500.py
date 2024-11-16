@@ -31,8 +31,8 @@ with open(input_file, 'r') as csvfile:
             trip_ids_in_order.append((trip_id, timestamp))
 
 # Step 2: Sort trips by timestamp and select the first 1500 unique trips
-# trip_ids_in_order.sort(key=lambda x: x[1])  # Sort by timestamp
-selected_trip_ids = {trip_id for trip_id, _ in trip_ids_in_order[:1500]}
+# trip_ids_in_order.sort(key=lambda x: x[1])  # Sort by timestamp if needed
+selected_trip_ids = [trip_id for trip_id, _ in trip_ids_in_order[:1500]]
 
 # Statistics to gather
 single_point_polylines = 0
@@ -60,7 +60,7 @@ with open(output_file, 'w', newline='') as csvfile:
     writer.writeheader()
     
     # Write each selected trip with all its entries, excluding single-point trips
-    for trip_id in selected_trip_ids:
+    for trip_id in selected_trip_ids:  # Order preserved
         for row in trips[trip_id]:
             polyline = eval(row['POLYLINE'])  # Convert POLYLINE from string to list
             polyline = filter_duplicate_points(polyline)  # Remove consecutive duplicates
