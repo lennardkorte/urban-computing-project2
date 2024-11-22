@@ -71,6 +71,12 @@
 
 ## Task 4
 ### Third Party Libraries Required
+- pandas
+- geopandas
+- shapely
+- pyproj
+- folium
+- branca
 
 ### Files Required
 - `data/matched.csv`
