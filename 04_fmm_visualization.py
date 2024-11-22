@@ -7,7 +7,7 @@ from pyproj import CRS
 import folium
 import branca.colormap as cm
 
-MATCH_RESULTS = './data/matched_results_1500_updated.csv'
+MATCH_RESULTS = './data/matched.csv'
 crs = CRS("EPSG:4326")
 
 def obtain_linestring(x):
@@ -65,4 +65,4 @@ for idx, coords in enumerate(trip_coords):
 fmap.add_child(folium.LayerControl())
 img_data = fmap._to_png(5)
 img = Image.open(io.BytesIO(img_data))
-img.save('task4.png')
+img.save('outputs/task4.png')

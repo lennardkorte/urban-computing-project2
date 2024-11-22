@@ -39,12 +39,13 @@
 ## Task 4
 
 ### Files Required
-- 
+- `data/matched.csv`
+
 ### Outputs
-- 
+- `outputs/task4.png`
 
 ### Scripts to run
-1. 
+1. 04_fmm_visualization.py
 
 ## Task 5
 ### Third Party Libraries Required

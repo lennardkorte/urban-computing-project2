@@ -6,7 +6,7 @@ from fmm import FastMapMatch, Network, NetworkGraph, UBODTGenAlgorithm, UBODT, F
 network_file = "./porto/edges.shp"
 ubodt_file = "./data/ubodt.txt"
 input_file = "./data/train-1500.csv"
-output_file = "./data/matched_results_1500_updated.csv"
+output_file = "./data/matched.csv"
 trip_limit = 1500  # Limit processing to first 15 trips
 
 # Map matching parameters
