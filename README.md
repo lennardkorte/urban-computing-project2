@@ -49,6 +49,7 @@
 
 ## Task 5
 ### Third Party Libraries Required
+- geopandas
 - pillow
 - pandas
 - numpy
@@ -56,10 +57,12 @@
 
 ### Files Required
 - `data/train-1500.csv`
-- `data/edges.csv`
 - `data/matched.csv`
+- `porto/edges.shp`
   
 ### Outputs
+**Misc**
+- `data/edges_osmid_to_edges.csv`
 
 **Visualizations**
 - `outputs/task_5_1_all.png`
@@ -73,7 +76,8 @@
 - `outputs/task_5_2_top10.csv`
 
 ### Scripts to run
-1. 05_route_analysis.py
+1. 05_eid_to_osmid_mappings.ipynb
+2. 05_route_analysis.py
 
 ## Task 6
 
