@@ -184,7 +184,7 @@ if __name__ == '__main__':
     print('Load data...')
     tdf = pd.read_csv('data/train-1500.csv')
     mdf = pd.read_csv('data/matched.csv')
-    osm_edges = pd.read_csv('data/edges_osmid_to_edges.csv')
+    osm_edges = pd.read_csv('data/edges_eid_to_osmid.csv')
     os.makedirs('outputs', exist_ok=True)
 
     # get all unique edge ids

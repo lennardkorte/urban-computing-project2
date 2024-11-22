@@ -62,7 +62,7 @@
   
 ### Outputs
 **Misc**
-- `data/edges_osmid_to_edges.csv`
+- `data/edges_eid_to_osmid.csv`
 
 **Visualizations**
 - `outputs/task_5_1_all.png`
