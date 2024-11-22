@@ -1,7 +1,7 @@
 # Instructions
 
 ## Task 1
-### Third Party Libraries
+### Third Party Libraries Required
 - osmnx
 - folium
 - matplotlib
@@ -29,6 +29,7 @@
 5. 01_take-1500.py
 
 ## Task 2
+### Third Party Libraries Required
 
 ### Files Required
 - 
@@ -39,6 +40,7 @@
 1. 
 
 ## Task 3
+### Third Party Libraries Required
 
 ### Files Required
 - 
@@ -49,6 +51,7 @@
 1. 
 
 ## Task 4
+### Third Party Libraries Required
 
 ### Files Required
 - `data/matched.csv`
@@ -92,6 +95,7 @@
 2. 05_route_analysis.py
 
 ## Task 6
+### Third Party Libraries Required
 
 ### Files Required
 - 
