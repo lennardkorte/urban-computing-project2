@@ -6,8 +6,8 @@ from fmm import FastMapMatch, Network, NetworkGraph, UBODTGenAlgorithm, UBODT, F
 network_file = "./porto/edges.shp"
 ubodt_file = "./data/ubodt.txt"
 input_file = "./data/train-1500.csv"
-output_file = "./data/matched.csv"
-trip_limit = 15  # Limit processing to first 15 trips
+output_file = "./data/matched_results_1500_updated.csv"
+trip_limit = 1500  # Limit processing to first 15 trips
 
 # Map matching parameters
 search_radius = 0.05
@@ -44,7 +44,24 @@ else:
         polyline_index = headers.index("POLYLINE")
         
         # Write header for output
-        csv_writer.writerow(["TRIP_ID", "mapped_route_points"])
+        csv_writer.writerow(["idx", 
+                             "id",
+                             "match_path",
+                             "match_edge_by_pt",
+                             "match_edge_by_idx",
+                             "match_geom",
+                             "edge_id",
+                             "source",
+                             "target",
+                             "error",
+                             "length",
+                             "offset",
+                             "spdist",
+                             "ep",
+                             "tp",
+                             ])
+
+        
         
         print("Processing rows for map matching.")
         for row_index, row in enumerate(csv_reader):
@@ -67,8 +84,32 @@ else:
                 match_result = map_matcher.match_wkt(wkt_path, map_matcher_config)
                 print("Matched trip {}.".format(trip_id))
                 
+  'idx': idx,
+      'id': _id,
+      'match_path': list(result.cpath),
+      'match_edge_by_pt': list(result.opath),
+      'match_edge_by_idx': list(result.indices),
+      'match_geom': result.mgeom.export_wkt(),  # lat and lon information
+      'match_pt': result.pgeom.export_wkt(),
+      'edge_id': [c.edge_id for c in result.candidates],
+      'source': [c.source for c in result.candidates],
+      'target': [c.target for c in result.candidates],
+      'error': [c.error for c in result.candidates],
+      'length': [c.length for c in result.candidates],
+      'offset': [c.offset for c in result.candidates],
+      'spdist': [c.spdist for c in result.candidates],
+      'ep': [c.ep for c in result.candidates],
+      'tp'
+
                 # Write matched result
-                csv_writer.writerow([trip_id, match_result.mgeom.export_wkt()])
+                csv_writer.writerow([row_index, 
+                                    trip_id,
+                                    match_result.cpath,
+                                    match_result.opath,
+                                    match_result.indices,
+                                    match_result.mgeom.export_wkt(),
+                                    match_result.
+                                    ])
                 
             except Exception as e:
                 print("Error processing row {}: {}".format(row_index, e))
