@@ -56,6 +56,8 @@
 - `outputs/task_5_2_{rank}.png`
 - `outputs/task_5_overall.png`: 
 **Top 10**
+- `outputs/task_5_1_top10.csv`
+- `outputs/task_5_2_top10.csv`
 
 ### Scripts to run
 1. 05_route_analysis.py

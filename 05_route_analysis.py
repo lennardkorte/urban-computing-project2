@@ -1,3 +1,4 @@
+import os
 import re
 import heapq
 import requests 
@@ -274,6 +275,7 @@ if __name__ == '__main__':
 
     # overall visualizations task 5.1
     print('Road Segments: Top-10 Most Traversed')
+    top_10_entries = []
     padding = 100
     overall_bbox = None
     task_5_1_bboxes = []
@@ -307,6 +309,12 @@ if __name__ == '__main__':
                 way['id'], 
                 n_trips
             ))
+        top_10_entries.append({
+            'rank': i+1,
+            'name': way['tags'].get('name', 'Unnamed'),
+            'id': way['id'],
+            'n_trips': n_trips
+        })
     
         segment_bbox = get_padded_bounding_box(g.lon, g.lat, 2)
         task_5_1_bboxes.append(segment_bbox)
@@ -314,7 +322,7 @@ if __name__ == '__main__':
         plot_text_bbox(segment_bbox, ax, str(i+1), 'red', 12)
         ax.plot(g.lon, g.lat, '-', linewidth=1, label=f'{wid}', c='blue')
         
-    
+    pd.DataFrame(top_10_entries).to_csv(f'outputs/task_5_1_top{K}.csv', index=False)
     a,b,c,d = overall_bbox
     ax.set_xlim([a,c])
     ax.set_ylim([b,d])
@@ -329,6 +337,7 @@ if __name__ == '__main__':
 
     # overall visualizations task 5.2
     print('Road Segments: Top-10 Average Travelling Time')
+    top_10_entries = []
     padding = 400
     overall_bbox = None
     task_5_2_bboxes = []
@@ -365,6 +374,13 @@ if __name__ == '__main__':
                 avg_time,
                 n_trips
             ))        
+        top_10_entries.append({
+            'rank': i+1,
+            'name': way['tags'].get('name', 'Unnamed'),
+            'id': way['id'],
+            'avg_time': avg_time,
+            'n_trips': n_trips
+        })
             
         segment_bbox = get_padded_bounding_box(g.lon, g.lat, 2)
         task_5_2_bboxes.append(segment_bbox)  
@@ -373,6 +389,7 @@ if __name__ == '__main__':
         plot_text_bbox(segment_bbox, ax, str(i+1), 'red', 14)    
         ax.plot(g.lon, g.lat, '-', linewidth=1, label=f'{wid}', c = 'blue')
         
+    pd.DataFrame(top_10_entries).to_csv(f'outputs/task_5_2_top{K}.csv', index=False)
     a,b,c,d = overall_bbox
     ax.set_xlim([a,c])
     ax.set_ylim([b,d])
