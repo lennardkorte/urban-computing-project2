@@ -6,11 +6,15 @@
   
 ### Outputs
 - `data/train-1500.csv`
+- `data/points_distribution.png`
+
 
 ### Scripts to run
 1. 01_download_network.ipynb
-2. 01_take-1500.py
-
+2. 01_map_folium.py
+3. 01_map_folium_capture.py
+4. 01_map_osmax.py
+5. 01_take-1500.py
 
 ## Task 2
 
