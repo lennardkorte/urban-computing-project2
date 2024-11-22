@@ -1,13 +1,25 @@
 # Instructions
 
 ## Task 1
+### Third Party Libraries
+- osmnx
+- folium
+- matplotlib
+- shapely
+- selenium
+- numpy
+
 ### Files Required
 - `data/train.csv`
-  
+
 ### Outputs
+- `porto/edges.shp`
+- `porto/nodes.shp`
 - `data/train-1500.csv`
 - `data/points_distribution.png`
-
+- `data/porto_map_without_points_full_folium.html`
+- `data/porto_map_without_points_full_osmnx.png`
+- `data/porto_map_without_points_full_folium.png`
 
 ### Scripts to run
 1. 01_download_network.ipynb
