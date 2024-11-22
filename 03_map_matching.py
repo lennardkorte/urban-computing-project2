@@ -83,23 +83,6 @@ else:
                 print("Matching trip {}.".format(trip_id))
                 match_result = map_matcher.match_wkt(wkt_path, map_matcher_config)
                 print("Matched trip {}.".format(trip_id))
-                
-  'idx': idx,
-      'id': _id,
-      'match_path': list(result.cpath),
-      'match_edge_by_pt': list(result.opath),
-      'match_edge_by_idx': list(result.indices),
-      'match_geom': result.mgeom.export_wkt(),  # lat and lon information
-      'match_pt': result.pgeom.export_wkt(),
-      'edge_id': [c.edge_id for c in result.candidates],
-      'source': [c.source for c in result.candidates],
-      'target': [c.target for c in result.candidates],
-      'error': [c.error for c in result.candidates],
-      'length': [c.length for c in result.candidates],
-      'offset': [c.offset for c in result.candidates],
-      'spdist': [c.spdist for c in result.candidates],
-      'ep': [c.ep for c in result.candidates],
-      'tp'
 
                 # Write matched result
                 csv_writer.writerow([row_index, 
@@ -108,7 +91,16 @@ else:
                                     match_result.opath,
                                     match_result.indices,
                                     match_result.mgeom.export_wkt(),
-                                    match_result.
+                                    match_result.pgeom.export_wkt(),
+                                    [c.edge_id for c in match_result.candidates],
+                                    [c.source for c in match_result.candidates],
+                                    [c.target for c in match_result.candidates],
+                                    [c.error for c in match_result.candidates],
+                                    [c.length for c in match_result.candidates],
+                                    [c.offset for c in match_result.candidates],
+                                    [c.spdist for c in match_result.candidates],
+                                    [c.ep for c in match_result.candidates],
+                                    [c.tp for c in match_result.candidates],
                                     ])
                 
             except Exception as e:
