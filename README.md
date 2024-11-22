@@ -40,15 +40,22 @@
 1. 
 
 ## Task 3
+### Third Party Programs
+- Docker
 ### Third Party Libraries Required
+- fmm
 
 ### Files Required
-- 
+- `Dockerfile`
+- `data/train-1500.csv`
+- `porto/edges.shp`
+
 ### Outputs
-- 
+- `data/matched.csv`
+- `data/ubodt.txt`
 
 ### Scripts to run
-1. 
+1. 03_run.sh
 
 ## Task 4
 ### Third Party Libraries Required
