@@ -52,7 +52,7 @@
 ### Files Required
 - `data/train-1500.csv`
 - `data/edges.csv`
-- `data/matches.csv`
+- `data/matched.csv`
   
 ### Outputs
 

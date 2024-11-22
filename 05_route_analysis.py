@@ -183,7 +183,8 @@ def get_stitched_tiles(bbox, zoom):
 if __name__ == '__main__':
     print('Load data...')
     tdf = pd.read_csv('data/train-1500.csv')
-    mdf = pd.read_csv('data/matched_results_1500_updated.csv')
+    #mdf = pd.read_csv('data/matched_results_1500_updated.csv')
+    mdf = pd.read_csv('data/matched.csv')
     osm_edges = pd.read_csv('data/edges.csv')
     os.makedirs('outputs', exist_ok=True)
 
