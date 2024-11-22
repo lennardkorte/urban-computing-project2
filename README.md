@@ -49,7 +49,13 @@
 - `data/matches.csv`
   
 ### Outputs
-- Visualizations for Task 5, with the prefix `task_5_`
+**Visualizations**
+- `outputs/task_5_1_all.png`
+- `outputs/task_5_1_{rank}.png`
+- `outputs/task_5_2_all.png`
+- `outputs/task_5_2_{rank}.png`
+- `outputs/task_5_overall.png`: 
+**Top 10**
 
 ### Scripts to run
 1. 05_route_analysis.py
