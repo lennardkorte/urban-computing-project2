@@ -10,7 +10,7 @@
 - numpy
 
 ### Files Required
-- `data/train.csv`
+- `data/train.csv`: This file should be placed into the `data` subfolder prior to running any script.
 
 ### Outputs
 - `porto/edges.shp`
@@ -30,14 +30,26 @@
 
 ## Task 2
 ### Third Party Libraries Required
-
+- pandas
+- selenium
+- matplotlib
+- osmnx
+-
 ### Files Required
-- 
+- `data/train-1500.csv`  
 ### Outputs
-- 
+- `data/first_15_trips_in_porto_zoomed.png`
+- `data/porto_trips_map_zoomed.html`
+- `data/porto_trips_map_zoomed.png`
+- `data/separate_html/porto_trip_{trip_id}.html`
+- `data/trip_screenshots/porto_trip_{trip_id}.png`
 
 ### Scripts to run
-1. 
+1. 02_gps_point_visualization_osmnx.py
+2. 02_gps_point_visualization_folium.py
+3. 02_gps_point_visualization_folium_capture.py
+4. 02_gps_point_visualization_folium_separate.py
+5. 02_gps_point_visualization_folium_capture_separate.py
 
 ## Task 3
 ### Third Party Programs
@@ -103,11 +115,18 @@
 
 ## Task 6
 ### Third Party Libraries Required
+- folium
+- selenium
+- pandas
+- matplotlib
 
 ### Files Required
-- 
+- `data/train-1500.csv` 
 ### Outputs
-- 
+- `data/task_6_results/{filename}`
 
 ### Scripts to run
-1.
+1. 06_mm_improvement.py
+2. 06_mm_improvement_visualize.py
+3. 06_mm_improvement_visualize_capture.py
+4. 06_mm_improvement_visualize_singles.py1.
